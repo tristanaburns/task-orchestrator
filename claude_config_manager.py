@@ -137,6 +137,16 @@ class ClaudeDesktopConfigManager:
                 "type": "stdio",
                 "command": "npx",
                 "args": ["-y", "@modelcontextprotocol/server-sequential-thinking@latest"]
+            },
+            "thinking": {
+                "type": "stdio",
+                "command": "uvx",
+                "args": ["mcp-think", "--transport", "stdio"]
+            },
+            "think-tool": {
+                "type": "stdio",
+                "command": "npx",
+                "args": ["-y", "@cgize/mcp-think-tool@latest"]
             }
         }
         
