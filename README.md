@@ -5,6 +5,7 @@ This repository contains the database and configuration files for the MCP Task O
 ## Contents
 
 - `task_orchestrator.db*` - SQLite database files (main database, shared memory, and write-ahead log)
+- `task_orchestrator_wrapper.py` - Python wrapper script that suppresses logging for JSON-RPC compatibility
 - `roles/` - Project role configurations and YAML files
 - `logs/` - Database persistence and operational logs
 - `server_state/` - Server state information
