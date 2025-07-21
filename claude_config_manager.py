@@ -62,7 +62,7 @@ class ClaudeDesktopConfigManager:
         config["mcpServers"]["task-orchestrator"] = {
             "type": "stdio",
             "command": "python",
-            "args": ["task_orchestrator_wrapper.py"],
+            "args": [str(wrapper_path).replace("/", "\\")],
             "cwd": str(repo_path).replace("/", "\\")
         }
         
