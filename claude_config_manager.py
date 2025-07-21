@@ -105,11 +105,7 @@ class ClaudeDesktopConfigManager:
                     "FIRECRAWL_API_KEY": "fc-b6e9a7f2e9e845d4a6f7e9f0a8b1c2d3"
                 }
             },
-            "filesystem": {
-                "type": "stdio",
-                "command": "npx",
-                "args": ["-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"]
-            },
+
             "fetch": {
                 "type": "stdio",
                 "command": "python",
@@ -133,11 +129,6 @@ class ClaudeDesktopConfigManager:
                     "MEMORY_FILE_PATH": "memory.json"
                 }
             },
-            "sequentialthinking": {
-                "type": "stdio",
-                "command": "npx",
-                "args": ["-y", "@modelcontextprotocol/server-sequential-thinking@latest"]
-            },
             "thinking": {
                 "type": "stdio",
                 "command": "uvx",
@@ -157,6 +148,14 @@ class ClaudeDesktopConfigManager:
                 config["mcpServers"][server_name] = server_config
                 updated = True
                 print(f"✅ Updated {server_name} configuration")
+        
+        # Remove unwanted servers
+        unwanted_servers = ["sequentialthinking", "filesystem", "think-tool"]
+        for server_name in unwanted_servers:
+            if server_name in config["mcpServers"]:
+                del config["mcpServers"][server_name]
+                updated = True
+                print(f"✅ Removed {server_name} server")
         
         if updated:
             self.backup_config()
